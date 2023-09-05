@@ -1,0 +1,25 @@
+ii) 3x2yz
+
+
+from sympy.physics.vector import *
+from sympy import var
+var('x,y,z')
+v=ReferenceFrame('v')
+F=3*v[0]**2*v[1]*v[2]
+G=gradient(F,v)
+F=F.subs([(v[0],x), (v[1],y), (v[2],z)])
+print("Given scalar function F = ")
+display(F)
+G=G.subs([(v[0],x), (v[1],y), (v[2],z)])
+print("\n Gradient of F=")
+display(G)
+
+
+9) b) Write the Python code and Execute :: d2y/dx2 – 2 dy/dx+ y =cos3x
+
+from sympy import *
+x=symbols('x')
+y=Function('y')(x)
+DE=Eq(Derivative(y,x,2) - 2*Derivative(y,x) +y, cos(3*x))
+GS=dsolve(DE)
+display(GS)
