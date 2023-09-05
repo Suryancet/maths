@@ -1,0 +1,26 @@
+i) x2yz .
+
+Method-1
+
+from sympy.physics.vector import *
+from sympy import var
+var('x,y,z')
+v=ReferenceFrame('v')
+F=v[0]**2*v[1]*v[2]
+G=gradient(F,v)
+F=F.subs([(v[0],x), (v[1],y), (v[2],z)])
+print("Given scalar function F = ")
+display(F)
+G=G.subs([(v[0],x), (v[1],y), (v[2],z)])
+print("\n Gradient of F=")
+display(G)
+
+
+(4 D2- 4D -3)y =e2x
+
+from sympy import *
+x=symbols('x')
+y=Function('y')(x)
+DE=Eq(4*Derivative(y,x,2) - 4*Derivative(y,x) -3*y , exp(2*x))
+GS=dsolve(DE)
+display(GS)
